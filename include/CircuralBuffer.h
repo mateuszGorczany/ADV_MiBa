@@ -15,7 +15,10 @@ public:
     void put(T item)
     {
         elements[size] = item;
+        ++size;
     }
+
+    size_type capacity() { return elements.size();  }
 
 private:
     std::vector<T> elements {std::vector<T>{}};

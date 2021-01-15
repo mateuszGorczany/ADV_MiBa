@@ -6,17 +6,6 @@
 
 template<typename T>
 using CB = CircuralBuffer<T>;
-// TEST(SquareRootTest, PositiveNos) { 
-//     EXPECT_EQ(5, squareRoot(36.0));
-//     ASSERT_EQ(18.0, squareRoot(324.0));
-//     ASSERT_EQ(25.4, squareRoot(645.16));
-//     ASSERT_EQ(0, squareRoot(0.0));
-// }
- 
-// TEST(SquareRootTest, NegativeNos) {
-//     ASSERT_EQ(-1.0, squareRoot(-15.0));
-//     ASSERT_EQ(-1.0, squareRoot(-0.2));
-// }
  
 TEST(ConstructorTest, Construct_getSize)
 {
@@ -26,12 +15,21 @@ TEST(ConstructorTest, Construct_getSize)
     ASSERT_EQ(0, cbuff.size);
 }
 
-
-TEST(ConstructorTest, Construct_getSize)
+TEST(CapacityTest, Capacity)
 {
     CB<int> cbuff = CB<int>(5);
+    ASSERT_EQ(5, cbuff.capacity());
+}
+
+TEST(PutTest, Put)
+{
+    CB<int> cbuff = CB<int>(5);
+    cbuff.put(1);
+    cbuff.put(2);
     cbuff.put(3);
-    ASSERT_EQ(3, cbuff.elements[0]);
+    cbuff.put(4);
+    cbuff.put(5);
+    EXPECT_EQ(1, cbuff.elements[0]);
 }
 
 
