@@ -12,7 +12,7 @@ public:
     :   elements{std::vector<T>(allocate_size)}
     {}
 
-    void add(T item)
+    CircuralBuffer &add(T item)
     {
 
         if (head == getAllocatedSize())
@@ -23,6 +23,8 @@ public:
 
         if(size < getAllocatedSize())
             ++size;
+
+        return *this;
     }
 
     size_type getSize() { return size; }

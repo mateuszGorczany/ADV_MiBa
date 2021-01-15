@@ -35,7 +35,7 @@ TEST(PutTest, Put)
     EXPECT_EQ(5, cbuff.size);
 }
 
-TEST(HeadTest, Tail)
+TEST(TailTest, Tail)
 {
     CB<int> cbuff = CB<int>(4);
     ASSERT_EQ(cbuff.getHead(), cbuff.getTail());
@@ -46,9 +46,22 @@ TEST(HeadTest, Tail)
     // ASSERT_EQ(1, cbuff.getHead());
 }
 
-TEST(TailTest, Tail)
+TEST(HeadTest, Tail)
 {
-    CB<int> cbuff = CB<int>(3);
+    CB<int> cbuff = CB<int>(4);
+    ASSERT_EQ(cbuff.getHead(), cbuff.getTail());
+
+    cbuff.add(1).add(2);
+
+    ASSERT_EQ(2, cbuff.getHead());
+
+    cbuff.add(2).add(2);
+
+    ASSERT_EQ(4, cbuff.getHead());
+
+    cbuff.add(2);
+
+    ASSERT_EQ(1, cbuff.getHead());
 }
 
 int main(int argc, char **argv) 
