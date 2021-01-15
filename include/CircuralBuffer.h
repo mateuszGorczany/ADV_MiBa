@@ -27,7 +27,18 @@ public:
         return *this;
     }
 
-    // T pop()
+    T pop()
+    {
+        if (size == 0)
+            throw std::runtime_error("No elements to pop!");
+
+        T &toPop = elements[tail];
+        ++tail;
+        if (tail == getAllocatedSize())
+            tail = 0;
+
+        return toPop;
+    }
 
     size_type getSize() { return size; }
     size_type getHead() { return head; }
