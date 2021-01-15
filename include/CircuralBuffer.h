@@ -27,6 +27,8 @@ public:
         return *this;
     }
 
+    // T pop()
+
     size_type getSize() { return size; }
     size_type getHead() { return head; }
     size_type getTail() { return tail; }

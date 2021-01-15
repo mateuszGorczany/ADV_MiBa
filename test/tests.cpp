@@ -42,11 +42,11 @@ TEST(TailTest, Tail)
     cbuff.add(1);
     cbuff.add(2);
     ASSERT_EQ(0, cbuff.getTail());
-    // cbuff.pop();
-    // ASSERT_EQ(1, cbuff.getHead());
+    cbuff.pop();
+    ASSERT_EQ(1, cbuff.getHead());
 }
 
-TEST(HeadTest, Tail)
+TEST(HeadTest, Head)
 {
     CB<int> cbuff = CB<int>(4);
     ASSERT_EQ(cbuff.getHead(), cbuff.getTail());
@@ -62,6 +62,15 @@ TEST(HeadTest, Tail)
     cbuff.add(2);
 
     ASSERT_EQ(1, cbuff.getHead());
+}
+
+TEST(PopTest, Pop)
+{
+    CB<int> cbuff = CB<int>(4);
+    ASSERT_THROW(cbuff.pop(), std::runtime_error);
+    cbuff.add(1).add(2);
+    EXPECT_EQ(1, cbuff.pop());
+    EXPECT_EQ(1, cbuff.getTail());
 }
 
 int main(int argc, char **argv) 
