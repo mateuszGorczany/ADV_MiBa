@@ -27,6 +27,14 @@ TEST(ConstructorTest, Construct_getSize)
 }
 
 
+TEST(ConstructorTest, Construct_getSize)
+{
+    CB<int> cbuff = CB<int>(5);
+    cbuff.put(3);
+    ASSERT_EQ(3, cbuff.elements[0]);
+}
+
+
 int main(int argc, char **argv) 
 {
     testing::InitGoogleTest(&argc, argv);
