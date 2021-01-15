@@ -12,7 +12,10 @@ public:
     :   elements{std::vector<T>(allocate_size)}
     {}
 
-
+    void put(T item)
+    {
+        elements[size] = item;
+    }
 
 private:
     std::vector<T> elements {std::vector<T>{}};
