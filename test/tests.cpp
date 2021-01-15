@@ -42,8 +42,9 @@ TEST(TailTest, Tail)
     cbuff.add(1);
     cbuff.add(2);
     ASSERT_EQ(0, cbuff.getTail());
-    // cbuff.pop();
-    // ASSERT_EQ(1, cbuff.getHead());
+    cbuff.pop();
+    ASSERT_EQ(2, cbuff.getHead());
+    ASSERT_EQ(1, cbuff.getTail());
 }
 
 TEST(HeadTest, Head)
@@ -53,15 +54,15 @@ TEST(HeadTest, Head)
 
     cbuff.add(1).add(2);
 
-    ASSERT_EQ(2, cbuff.getHead());
+    EXPECT_EQ(2, cbuff.getHead());
 
     cbuff.add(2).add(2);
 
-    ASSERT_EQ(4, cbuff.getHead());
+    EXPECT_EQ(4, cbuff.getHead());
 
     cbuff.add(2);
 
-    ASSERT_EQ(1, cbuff.getHead());
+    EXPECT_EQ(1, cbuff.getHead());
 }
 
 TEST(PopTest, Pop)
