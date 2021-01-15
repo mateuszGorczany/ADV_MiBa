@@ -1,4 +1,4 @@
-cd build -> cmake .. ; nastęnie:
+cd build -> cmake .. ; nastpęnie:
 make - buduje 
 make run - uruchamia
 make check - sprawdza valgrindem
