@@ -12,16 +12,28 @@ public:
     :   elements{std::vector<T>(allocate_size)}
     {}
 
-    void put(T item)
+    void add(T item)
     {
-        elements[size] = item;
-        ++size;
+
+        if (head == getAllocatedSize())
+            head = 0;
+
+        elements[head] = std::move(item);
+        ++head;
+
+        if(size < getAllocatedSize())
+            ++size;
     }
 
-    size_type capacity() { return elements.size();  }
+    size_type getSize() { return size; }
+    size_type getHead() { return head; }
+    size_type getTail() { return tail; }
+    size_type getAllocatedSize() { return elements.size(); }
 
 private:
     std::vector<T> elements {std::vector<T>{}};
     bool full {false};
     size_type size {0};
+    size_type head{0};
+    size_type tail{0};
 };
