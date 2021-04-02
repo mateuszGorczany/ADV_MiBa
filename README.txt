@@ -1,13 +1,17 @@
-cd build -> cmake .. ; następnie:
-make - buduje 
-make run - uruchamia
-make check - sprawdza valgrindem
-make br - buduje od nowa i uruchamia
-make cbr - czyści, buduje od nowa i uruchamia
-make test - testuje
-make bt - buduje i testuje
-make cbt - czyści, buduje i testuje
 
-// Kontener:
-tail wskazuje na ostatni element (najstarszy)
-head wskazuje ZA najmłodszy element
+In this project I made simple circular buffer. I focused mainly on building with CMAKE and testing with GTEST. 
+
+
+cd build -> cmake .. ; then:
+make - build app
+make run - run app
+make check - valgrind check the app
+make br - build and run app
+make cbr - clean, build from ground up and run
+make test - test
+make bt - build and test app
+make cbt - clean, build and test app
+
+// Container:
+tail points on the last element (oldest)
+head points after youngest element
